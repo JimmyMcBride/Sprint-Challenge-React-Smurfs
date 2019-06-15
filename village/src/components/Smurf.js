@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Smurf = props => {
+const Smurf = ({ smurfs }) => {
   return (
     <div className="Smurf">
-      <h3>{props.name}</h3>
-      <strong>{props.height} tall</strong>
-      <p>{props.age} smurf years old</p>
+      <h3>{smurfs.name}</h3>
+      <strong>{smurfs.height} tall</strong>
+      <p>{smurfs.age} smurf years old</p>
     </div>
   );
 };
