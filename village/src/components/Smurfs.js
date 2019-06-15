@@ -2,7 +2,7 @@ import React from 'react'
 
 import Smurf from './Smurf'
 
-const Smurfs = ({ smurfs }) => {
+const Smurfs = ({ smurfs, deleteSmurf }) => {
   return (
     <div className="Smurfs">
       <h1>Smurf Village</h1>
@@ -12,6 +12,7 @@ const Smurfs = ({ smurfs }) => {
             <Smurf
               smurfs={smurf}
               key={smurf.id}
+              deleteSmurf={deleteSmurf}
             />
           )
         })}
