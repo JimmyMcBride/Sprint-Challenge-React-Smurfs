@@ -1,19 +1,18 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import Smurf from './Smurf'
 
-const Smurfs = ({ smurfs, deleteSmurf }) => {
+const Smurfs = ({ smurfs }) => {
   return (
     <div className="Smurfs">
       <h1>Smurf Village</h1>
       <ul>
         {smurfs.map(smurf => {
           return (
-            <Smurf
-              smurfs={smurf}
-              key={smurf.id}
-              deleteSmurf={deleteSmurf}
-            />
+            <Link to={`/${smurf.id}`} key={smurf.id}>
+              <h3>{smurf.name}</h3>
+            </Link>
           )
         })}
       </ul>

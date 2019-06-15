@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -51,6 +52,9 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+          <Link to='/'>
+            Back to Smurf Village
+          </Link>
       </div>
     )
   }

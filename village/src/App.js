@@ -6,6 +6,7 @@ import './App.css'
 
 import SmurfForm from './components/SmurfForm'
 import Smurfs from './components/Smurfs'
+import Smurf from './components/Smurf'
 
 class App extends Component {
   constructor(props) {
@@ -40,10 +41,20 @@ class App extends Component {
       .delete(`http://localhost:3333/smurfs/${id}`)
       .then(res => {
         const smurfs = res.data;
-        this.setState({smurfs})
+        this.setState({ smurfs })
       })
       .catch(err => console.error(err))
   }
+
+  // updateSmurf = smurf => {
+  //   axios
+  //     .put(`http://localhost:3333/smurfs/${smurf.id}`, smurf)
+  //     .then(res => {
+  //       const smurfs = res.data;
+  //       this.setState({ smurfs })
+  //     })
+  //     .catch(err => console.error(err))
+  // }
 
   render() {
     return (
@@ -57,8 +68,23 @@ class App extends Component {
         />
         <Route
           path='/'
-          render={() => (
-            <Smurfs smurfs={this.state.smurfs} deleteSmurf={this.deleteSmurf} />
+          exact
+          render={props => (
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+            />
+          )}
+        />
+        <Route
+          path='/:id'
+          render={props => (
+            <Smurf
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              updateSmurf={this.updateSmurf}
+            />
           )}
         />
       </div>
