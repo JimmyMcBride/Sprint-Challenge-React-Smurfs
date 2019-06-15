@@ -1,29 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 class SmurfForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       name: '',
       age: '',
       height: ''
-    };
+    }
   }
 
-  addSmurf = event => {
-    event.preventDefault();
-    // add code to create the smurf using the api
+  addSmurf = (e) => {
+    e.preventDefault()
+
+    const smurf = this.state
+    this.props.addSmurf(smurf)
 
     this.setState({
       name: '',
       age: '',
       height: ''
-    });
+    })
   }
 
   handleInputChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
+    this.setState({ [e.target.name]: e.target.value })
+  }
 
   render() {
     return (
@@ -49,9 +52,12 @@ class SmurfForm extends Component {
           />
           <button type="submit">Add to the village</button>
         </form>
+          <Link to='/'>
+            Back to Smurf Village
+          </Link>
       </div>
-    );
+    )
   }
 }
 
-export default SmurfForm;
+export default SmurfForm
