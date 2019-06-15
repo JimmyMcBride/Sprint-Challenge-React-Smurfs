@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import Smurf from './Smurf';
+import Smurf from './Smurf'
 
 const Smurfs = ({ smurfs }) => {
   return (
@@ -13,7 +13,7 @@ const Smurfs = ({ smurfs }) => {
               smurfs={smurf}
               key={smurf.id}
             />
-          );
+          )
         })}
       </ul>
     </div>
@@ -22,6 +22,6 @@ const Smurfs = ({ smurfs }) => {
 
 Smurf.defaultProps = {
  smurfs: [],
-};
+}
 
-export default Smurfs;
+export default Smurfs
